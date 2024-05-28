@@ -1,7 +1,7 @@
 import { DataTypes } from "sequelize";
 import sequelize from "../config/database.js";
  
-const Bar = sequelize.define({
+const Bar = sequelize.define('Bar',{
     name: {
         type: DataTypes.STRING,
     },

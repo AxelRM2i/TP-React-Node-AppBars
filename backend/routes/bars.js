@@ -10,12 +10,16 @@ router.get('/', async (req, res) => {//liste des bars
         res.status(500).json({ error: err.message })
     }
 })
-router.get('/:id', async (req, res) => {//détail d'un bar
+router.get('/:id', async (req, res) => {
     try {
-        const bar = await Bar.findAll();
-        res.json(bar);
+        const bar = await Bar.findByPk(req.params.id);
+        if (bar) {
+            res.json(bar);
+        } else {
+            res.status(404).json({ error: 'bar not found' });
+        }
     } catch (err) {
-        res.status(500).json({ error: err.message })
+        res.status(500).json({ error: err.message });
     }
 })
 

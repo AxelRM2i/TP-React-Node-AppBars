@@ -1,13 +1,13 @@
 import { DataTypes } from "sequelize";
 import sequelize from "../config/database.js";
 
-const Commande = sequelize.define({
+const Commande = sequelize.define('Commande',{
     name: {
         type: DataTypes.STRING,
     },
 
     price: {
-        type: DataTypes.FLOAT,min,
+        type: DataTypes.FLOAT,
     },
 
     bar_id: {

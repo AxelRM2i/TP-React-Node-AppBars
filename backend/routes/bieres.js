@@ -10,12 +10,16 @@ router.get('/bar/:id/biere', async (req, res) => {//liste des bieres d'un bar
         res.status(500).json({ error: err.message })
     }
 })
-router.get('/:id', async (req, res) => {//détail d'une biere
+router.get('/:id', async (req, res) => {
     try {
-        const biere = await Biere.findAll();
-        res.json(biere);
+        const biere = await Biere.findByPk(req.params.id);
+        if (biere) {
+            res.json(biere);
+        } else {
+            res.status(404).json({ error: 'biere not found' });
+        }
     } catch (err) {
-        res.status(500).json({ error: err.message })
+        res.status(500).json({ error: err.message });
     }
 })
 
