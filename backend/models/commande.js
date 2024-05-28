@@ -1,18 +1,9 @@
 import { DataTypes } from "sequelize";
 import sequelize from "../config/database.js";
 
-const Biere = sequelize.define({
+const Commande = sequelize.define({
     name: {
         type: DataTypes.STRING,
-    },
-
-    description: {
-        type: DataTypes.TEXT,
-        allowNull:false
-    },
-
-    degree: {
-        type: DataTypes.FLOAT,
     },
 
     price: {
@@ -23,6 +14,14 @@ const Biere = sequelize.define({
         type: DataTypes.INTEGER,
     },
 
+    date: {
+        type: DataTypes.DATE,
+    },
+
+    status: {
+        type: DataTypes.STRING,
+    }
+
 });
  
-export default Biere;
+export default Commande;

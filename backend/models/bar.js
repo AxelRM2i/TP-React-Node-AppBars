@@ -17,12 +17,11 @@ const Bar = sequelize.define({
 
     email: {
         type: DataTypes.STRING,
-
     },
+
     description: {
         type: DataTypes.TEXT,
-
-       
+        allowNull:false
     },
 
 });
