@@ -9,12 +9,14 @@ body {
 header {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
 
     width: 100%;
     height: 80px;
 
     background: #222;
     color: #dfdfdf;
+    border-bottom: 2px solid #fff;
 }
 
 .headerTitle {
@@ -22,6 +24,9 @@ header {
     height: 100%;
     padding: 15px 25px;
     box-sizing: border-box;
+
+    background: #F0830B;
+    background: linear-gradient(90deg, rgba(240,131,11,1) 0%, rgba(240,131,11,0) 100%);
 
     font-size: 2em;
     font-weight: 800;
@@ -48,14 +53,40 @@ ul.navlist {
     cursor: pointer;
 }
 
+.logbar {
+    width: 20%;
+    height: 100%;
+
+    background: #179EDD;
+    background: linear-gradient(90deg, rgba(23,158,221,0) 0%, rgba(23,158,221,1) 100%);
+}
+
 main {
     padding: 15px 40px;
 }
 
+.thumb {
+    width: 100%;
+    height: 250px;
+    background: url(images/abstract-bar1.jpg);
+    background-position: center -390px;
+    margin-bottom: 40px;
+}
+
 h1 {
+    margin: 0 0 15px 45px;
+
+    color: #fff;
+    font-size: 2.4em;
+    font-weight: 800;
+}
+
+h2 {
+    margin: 45px 0 15px 0;
+
     color: #222;
     font-weight: 500;
-    border-bottom: 2px solid #bbb;
+    border-bottom: 2px dashed #bbb;
 }
 
 .manager {
@@ -85,23 +116,39 @@ h1 {
 .btnPlus {
     width: 240px;
     height: 40px;
-    margin-bottom: 20px;
 
     border-radius: 15px;
     border: 2px solid #fff;
     font-weight: 700;
     color: #fff;
     background: #dfdfdf;
+    cursor: pointer;
+}
+
+.btnPlus:hover {
+    border-color: #222;
+}
+
+.mgrDescr {
+    margin-left: 15px;
+
+    font-weight: 700;
+    color: #555;
 }
 
 .addBar {
-    background: rgb(240,131,11);
+    background: #F0830B;
     background: linear-gradient(90deg, rgba(240,131,11,1) 51%, rgba(236,210,182,1) 100%);
 }
 
 .addOrder {
     background: rgb(23,158,221);
     background: linear-gradient(90deg, rgba(23,158,221,1) 51%, rgba(182,219,236,1) 100%);
+}
+
+.mgrBarForm, .mgrOrderForm {
+    display: none;
+    margin-top: 20px;
 }
 
 form {

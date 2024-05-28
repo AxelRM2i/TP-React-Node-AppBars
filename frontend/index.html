@@ -2,9 +2,37 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=!, initial-scale=1.0">
+    <meta name="viewport" content="initial-scale=1.0">
     <title>UBar - Accueil</title>
     <link rel="stylesheet" type="text/css" href="styles.css" media="screen">
+
+     <script type="text/javascript" src="js/jquery-3-7-1-min.js">
+        $(document).ready(function() {
+            alert('Coucou');
+            formBarIsDisplayed = false;
+            formOrderIsDisplayed = false;
+
+            $('#addBar').click(function() {
+                if (formBarIsDisplayed == false) {
+                    $('#formBar').show();
+                    formBarIsDisplayed = true;
+                } else {
+                    $('#formBar').hide();
+                    formBarIsDisplayed = false;
+                }
+            })
+
+            $('#addOrder').click(function() {
+                if (formOrderIsDisplayed == false) {
+                    $('#formOrder').show();
+                    formOrderIsDisplayed = true;
+                } else {
+                    $('#formOrder').hide();
+                    formOrderIsDisplayed = false;
+                }
+            })
+        })
+    </script>
 </head>
 
 
@@ -27,20 +55,25 @@
         </div>
     </header>
 
+    
+        <!-- IMAGE THUMB -->
+        <div class="thumb">
+            <div style="width: 100%; height: 70%;"></div>
+            <h1>Gérez vos bars et commandes, simplement.</h1>
+        </div>
+
 
     <!-- ====== MAIN ====== -->
+
     <main>
-        <!-- --- TITRE --- -->
-        <h1>Gérez vos bars et commandes, simplement.</h1>
-
-
         <!-- --- MANAGER --- -->
         <div class="manager">
             <div class="mgrSide mgrBar">
                 <div class="mgrBarHead">
-                    <button class="btnPlus addBar">Ajouter un bar</button>
+                    <button class="btnPlus addBar" id="addBar">Ajouter un bar</button>
+                    <span class="mgrDescr">Un nouveau lieu de rencontres...</span>
                 </div>
-                <div class="mgrBarForm">
+                <div class="mgrBarForm" id="formBar">
                     <form>
                         <label for="barName">Nom du bar</label>
                         <br>
@@ -68,31 +101,31 @@
             </div>
             <div class="mgrSide mgrOrder">
                 <div class="mgrOrderHead">
-                    <button class="btnPlus addOrder">Ajouter une commande</div>
+                    <button class="btnPlus addOrder" id="addOrder">Ajouter une commande</button>
+                    <span class="mgrDescr">Une nouvelle expérience...</span>
                 </div>
-                <div class="mgrOrderForm">
-                    <div class="mgrBarForm">
-                        <form>
-                            <label for="orderName">Nom du client</label>
-                            <br>
-                            <input type="text" name="orderName" id="orderName" required>
-                            <br>
-                            <label for="orderPrice">Prix</label>
-                            <br>
-                            <input type="text" name="orderPrice" id="orderPrice" required>
-                            <br>
-                            <label for="orderBarId">Identifiant du bar</label>
-                            <br>
-                            <input type="number" name="orderBarId" id="orderBarId">
-                            <br>
-                            <button class="validBtn" method="post">Valider</button>
-                        </form>
-                    </div>
+                <div class="mgrOrderForm" id="formOrder">
+                    <form>
+                        <label for="orderName">Nom du client</label>
+                        <br>
+                        <input type="text" name="orderName" id="orderName" required>
+                        <br>
+                        <label for="orderPrice">Prix</label>
+                        <br>
+                        <input type="text" name="orderPrice" id="orderPrice" required>
+                        <br>
+                        <label for="orderBarId">Identifiant du bar</label>
+                        <br>
+                        <input type="number" name="orderBarId" id="orderBarId">
+                        <br>
+                        <button class="validBtn" method="post">Valider</button>
+                    </form>
                 </div>
             </div>
         </div>
 
         <!-- --- BAR LIST --- -->
+        <h2>Les bars</h2>
         <div class="barList">
 
         </div>
