@@ -2,7 +2,7 @@ import express from 'express';
 import Biere from '../models/biere.js';
 const router = express.Router();
 
-router.get('/bar/:id/biere', async (req, res) => {//liste des bieres d'un bar
+router.get('/', async (req, res) => {//liste des bieres d'un bar
     try {
         const biere = await Biere.findAll();
         res.json(biere);
@@ -23,9 +23,11 @@ router.get('/:id', async (req, res) => {
     }
 })
 
-router.post('/bar/:id/biere', async (req, res) => {
+router.post('/', async (req, res) => {
     try {
-        const newBiere = await Biere.create(req.body);
+        const barId = req.params.id;
+        const {name,description, degree, price} = req.body;
+        const newBiere = await Biere.create({name,description,degree,price,bar_id: barId});
         res.status(201).json(newBiere);
     } catch (err) {
         res.status(500).json({ error: err.message })
