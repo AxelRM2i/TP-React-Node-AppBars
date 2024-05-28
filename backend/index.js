@@ -1,4 +1,3 @@
-// Importation des routes
 import express from 'express';
 import cors from 'cors';
 import sequelize from './config/database.js';
@@ -13,7 +12,6 @@ import Biere_Commande from './models/biere_commande.js';
 import Biere from './models/biere.js';
 import Commande from './models/commande.js';
 
-const express = require('express');
 const app = express();
 const port = 3000;
 
