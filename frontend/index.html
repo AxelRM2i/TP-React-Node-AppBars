@@ -1,13 +1,107 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=!, initial-scale=1.0">
+    <title>UBar - Accueil</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" media="screen">
+</head>
+
+
+<body>
+    <!-- ====== HEADER ====== -->
+    <header>
+        <div class="headerTitle">
+            UBar
+        </div>
+        <div class="navbar">
+            <ul class="navlist">
+                <li href="#">Accueil</li>
+                <li href="#">Bars</li>
+                <li href="#">Commandes</li>
+                <li href="#">Qui sommes-nous</li>
+            </ul>
+        </div>
+        <div class="logbar">
+
+        </div>
+    </header>
+
+
+    <!-- ====== MAIN ====== -->
+    <main>
+        <!-- --- TITRE --- -->
+        <h1>Gérez vos bars et commandes, simplement.</h1>
+
+
+        <!-- --- MANAGER --- -->
+        <div class="manager">
+            <div class="mgrSide mgrBar">
+                <div class="mgrBarHead">
+                    <button class="btnPlus addBar">Ajouter un bar</button>
+                </div>
+                <div class="mgrBarForm">
+                    <form>
+                        <label for="barName">Nom du bar</label>
+                        <br>
+                        <input type="text" name="barName" id="barName" required>
+                        <br>
+                        <label for="barAddress">Adresse</label>
+                        <br>
+                        <input type="text" name="barAddress" id="barAddress" required>
+                        <br>
+                        <label for="barPhone">Téléphone</label>
+                        <br>
+                        <input type="tel" name="barPhone" id="barPhone">
+                        <br>
+                        <label for="barEmail">E-mail</label>
+                        <br>
+                        <input type="email" name="barEmail" id="barEmail" required>
+                        <br>
+                        <label for="barDescr">Adresse</label>
+                        <br>
+                        <input type="text" name="barDescr" id="barDescr">
+                        <br>
+                        <button class="validBtn" method="post">Valider</button>
+                    </form>
+                </div>
+            </div>
+            <div class="mgrSide mgrOrder">
+                <div class="mgrOrderHead">
+                    <button class="btnPlus addOrder">Ajouter une commande</div>
+                </div>
+                <div class="mgrOrderForm">
+                    <div class="mgrBarForm">
+                        <form>
+                            <label for="orderName">Nom du client</label>
+                            <br>
+                            <input type="text" name="orderName" id="orderName" required>
+                            <br>
+                            <label for="orderPrice">Prix</label>
+                            <br>
+                            <input type="text" name="orderPrice" id="orderPrice" required>
+                            <br>
+                            <label for="orderBarId">Identifiant du bar</label>
+                            <br>
+                            <input type="number" name="orderBarId" id="orderBarId">
+                            <br>
+                            <button class="validBtn" method="post">Valider</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- --- BAR LIST --- -->
+        <div class="barList">
+
+        </div>
+    </main>
+
+
+    <!-- ====== FOOTER ====== -->
+    <footer>
+
+    </footer>
+</body>
 </html>

@@ -1,0 +1,146 @@
+body {
+    padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background: #efefef;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+
+    width: 100%;
+    height: 80px;
+
+    background: #222;
+    color: #dfdfdf;
+}
+
+.headerTitle {
+    width: 250px;
+    height: 100%;
+    padding: 15px 25px;
+    box-sizing: border-box;
+
+    font-size: 2em;
+    font-weight: 800;
+}
+
+.navbar {
+    width: 800px;
+    height: 100%;
+}
+
+ul.navlist {
+    margin: 25px 0;
+
+    font-size: 1.2em;
+    font-weight: 500;
+    list-style: none;
+    text-decoration: none;
+}
+
+.navlist li {
+    display: inline;
+    margin: 0 15px;
+
+    cursor: pointer;
+}
+
+main {
+    padding: 15px 40px;
+}
+
+h1 {
+    color: #222;
+    font-weight: 500;
+    border-bottom: 2px solid #bbb;
+}
+
+.manager {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.mgrSide {
+    width: 48%;
+    padding: 15px;
+    box-sizing: border-box;
+
+    border-radius: 15px;
+    -webkit-box-shadow: 6px 6px 15px -3px rgba(48,49,57,0.7); 
+    box-shadow: 6px 6px 15px -3px rgba(48,49,57,0.7);
+}
+
+.mgrBar {
+    background: #ecd2b6;
+}
+
+.mgrOrder {
+    background: #b6dbec;
+}
+
+.btnPlus {
+    width: 240px;
+    height: 40px;
+    margin-bottom: 20px;
+
+    border-radius: 15px;
+    border: 2px solid #fff;
+    font-weight: 700;
+    color: #fff;
+    background: #dfdfdf;
+}
+
+.addBar {
+    background: rgb(240,131,11);
+    background: linear-gradient(90deg, rgba(240,131,11,1) 51%, rgba(236,210,182,1) 100%);
+}
+
+.addOrder {
+    background: rgb(23,158,221);
+    background: linear-gradient(90deg, rgba(23,158,221,1) 51%, rgba(182,219,236,1) 100%);
+}
+
+form {
+    display: block;
+}
+
+label {
+    margin-top: 5px;
+    margin-left: 15px;
+
+    font-weight: 600;
+    color: #555;
+}
+
+input {
+    width: 80%;
+    height: 25px;
+    padding: 0 15px;
+    box-sizing: border-box;
+    margin: 2px 0;
+
+    border: 1px solid #dfdfdf;
+    border-radius: 120px;
+}
+
+.validBtn {
+    width: 70px;
+    height: 25px;
+    margin-top: 10px;
+
+    border: 1px solid #fff;
+    border-radius: 10px;
+    background: #7ed796;
+
+    font-weight: 700;
+    color: #555;
+}
+
+.validBtn:hover {
+    background: #d1f5db;
+    cursor: pointer;
+}
