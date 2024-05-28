@@ -1,4 +1,4 @@
-import sequelize from '../config/database.js';
+import sequelize from '../database.js';
 const baseUrl = 'http://localhost:5173';
 
 const biere = {
