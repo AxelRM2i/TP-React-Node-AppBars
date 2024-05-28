@@ -3,7 +3,7 @@ import sequelize from "../config/database.js";
  
 const Bar = sequelize.define({
     name: {
-        type: DataTypes.STRING(UNIQUE),
+        type: DataTypes.STRING,
     },
 
     address: {

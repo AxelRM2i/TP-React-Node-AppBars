@@ -1,5 +1,4 @@
 // scripts/seed.js
-import sequelize from './database.js';
 import Bar from '../models/bar.js';
 import './customConsole.js';
 
