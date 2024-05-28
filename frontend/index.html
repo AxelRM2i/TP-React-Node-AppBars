@@ -5,8 +5,9 @@
     <meta name="viewport" content="initial-scale=1.0">
     <title>UBar - Accueil</title>
     <link rel="stylesheet" type="text/css" href="styles.css" media="screen">
+    <script type="text/javascript" src="js/jquery-3-7-1-min.js"></script>
 
-     <script type="text/javascript" src="js/jquery-3-7-1-min.js">
+     <script type="text/javascript">
         $(document).ready(function() {
             alert('Coucou');
             formBarIsDisplayed = false;
@@ -14,20 +15,20 @@
 
             $('#addBar').click(function() {
                 if (formBarIsDisplayed == false) {
-                    $('#formBar').show();
+                    $('#formBar').show(120);
                     formBarIsDisplayed = true;
                 } else {
-                    $('#formBar').hide();
+                    $('#formBar').hide(120);
                     formBarIsDisplayed = false;
                 }
             })
 
             $('#addOrder').click(function() {
                 if (formOrderIsDisplayed == false) {
-                    $('#formOrder').show();
+                    $('#formOrder').show(120);
                     formOrderIsDisplayed = true;
                 } else {
-                    $('#formOrder').hide();
+                    $('#formOrder').hide(120);
                     formOrderIsDisplayed = false;
                 }
             })
