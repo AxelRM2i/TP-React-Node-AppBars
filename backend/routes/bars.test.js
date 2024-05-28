@@ -1,16 +1,15 @@
 import sequelize from '../config/database.js';
-const baseUrl = 'http://localhost:5173';
+const baseUrl = 'http://localhost:3000';
 
 const bar = {
-    id:1,
-    name: 'test',
+    name: 'Test Bar',
 };
 const updatedBar = {
-    name: 'test',
+    name: 'Updated Test Bar'
 };
 
 describe('Bars API', () => {
-    afterAll(async () => await sequelize.close())
+    afterAll(async () => await sequelize.close());
 
     test('GET /bars - should return all bars', async () => {
         const response = await fetch(`${baseUrl}/bars`);
@@ -38,7 +37,7 @@ describe('Bars API', () => {
         });
         const data = await response.json();
         expect(response.status).toBe(200);
-        expect(data.name).toBe('test');
+        expect(data.name).toBe(updatedBar.name);
     });
 
     test('DELETE /bars/:id - should delete an existing bar', async () => {

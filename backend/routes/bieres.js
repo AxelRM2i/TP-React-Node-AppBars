@@ -1,68 +1,74 @@
 import express from 'express';
 import Biere from '../models/biere.js';
+import Bar from '../models/bar.js';
 const router = express.Router();
 
-router.get('/', async (req, res) => {//liste des bieres d'un bar
+// Liste des bières d'un bar
+router.get('/bar/:barId/bieres', async (req, res) => {
     try {
-        const biere = await Biere.findAll();
-        res.json(biere);
+        const bieres = await Biere.findAll({ where: { bar_id: req.params.barId } });
+        res.json(bieres);
     } catch (err) {
-        res.status(500).json({ error: err.message })
+        res.status(500).json({ error: err.message });
     }
-})
+});
+
+// Détail d'une bière
 router.get('/:id', async (req, res) => {
     try {
         const biere = await Biere.findByPk(req.params.id);
         if (biere) {
             res.json(biere);
         } else {
-            res.status(404).json({ error: 'biere not found' });
+            res.status(404).json({ error: 'Bière non trouvée' });
         }
     } catch (err) {
         res.status(500).json({ error: err.message });
     }
-})
+});
 
-router.post('/', async (req, res) => {
+// Ajouter une bière à un bar
+router.post('/bar/:barId/biere', async (req, res) => {
     try {
-        const barId = req.params.id;
-        const {name,description, degree, price} = req.body;
-        const newBiere = await Biere.create({name,description,degree,price,bar_id: barId});
+        const barId = req.params.barId;
+        const { name, description, degree, price } = req.body;
+        const newBiere = await Biere.create({ name, description, degree, price, bar_id: barId });
         res.status(201).json(newBiere);
     } catch (err) {
-        res.status(500).json({ error: err.message })
+        res.status(500).json({ error: err.message });
     }
-})
+});
 
+// Modifier une bière
 router.put('/:id', async (req, res) => {
     try {
-        const id = req.params.id
-        const biere = await Biere.findByPk(id)
+        const id = req.params.id;
+        const biere = await Biere.findByPk(id);
         if (biere) {
-            await biere.update(req.body)
-            res.json(biere)
+            await biere.update(req.body);
+            res.json(biere);
         } else {
-            res.status(404).json({ error: 'biere not found' })
+            res.status(404).json({ error: 'Bière non trouvée' });
         }
     } catch (err) {
-        res.status(500).json({ error: err.message })
+        res.status(500).json({ error: err.message });
     }
-})
+});
 
+// Supprimer une bière
 router.delete('/:id', async (req, res) => {
     try {
-        const id = req.params.id
-        const biere = await Biere.findByPk(id)
+        const id = req.params.id;
+        const biere = await Biere.findByPk(id);
         if (biere) {
-            await biere.destroy()
-            res.status(204).end()
+            await biere.destroy();
+            res.status(204).end();
         } else {
-            res.status(404).json({ error: 'biere not found' })
+            res.status(404).json({ error: 'Bière non trouvée' });
         }
     } catch (err) {
-        res.status(500).json({ error: err.message })
+        res.status(500).json({ error: err.message });
     }
-})
-
+});
 
 export default router;

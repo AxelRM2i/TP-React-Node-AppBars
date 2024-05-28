@@ -1,32 +1,45 @@
-import sequelize from '../database.js';
-const baseUrl = 'http://localhost:5173';
+import sequelize from '../config/database.js';
+const baseUrl = 'http://localhost:3000';
 
 const biere = {
-    id:1,
-    name: 'test',
+    name: 'Test Biere',
+    description: 'A test biere',
+    degree: 5.0,
+    price: 3.5
 };
+
 const updatedBiere = {
-    name: 'test',
+    name: 'Updated Test Biere',
+    description: 'An updated test biere',
+    degree: 6.0,
+    price: 4.0
 };
 
 describe('Biere API', () => {
-    afterAll(async () => await sequelize.close())
+    afterAll(async () => await sequelize.close());
 
-    test('GET /bieres - should return all bieres', async () => {
-        const response = await fetch(`${baseUrl}/bieres`);
+    test('GET /bar/:barId/bieres - should return all bieres for a bar', async () => {
+        const response = await fetch(`${baseUrl}/bar/1/bieres`);
         const data = await response.json();
         expect(response.status).toBe(200);
         expect(Array.isArray(data)).toBe(true);
     });
 
-    test('POST /bieres - should create a new biere', async () => {
-        const response = await fetch(`${baseUrl}/bieres`, {
+    test('POST /bar/:barId/biere - should create a new biere', async () => {
+        const response = await fetch(`${baseUrl}/bar/1/biere`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(biere)
         });
         const data = await response.json();
         expect(response.status).toBe(201);
+        expect(data.name).toBe(biere.name);
+    });
+
+    test('GET /bieres/:id - should return a specific biere', async () => {
+        const response = await fetch(`${baseUrl}/bieres/1`);
+        const data = await response.json();
+        expect(response.status).toBe(200);
         expect(data.name).toBe(biere.name);
     });
 
@@ -38,7 +51,7 @@ describe('Biere API', () => {
         });
         const data = await response.json();
         expect(response.status).toBe(200);
-        expect(data.name).toBe('test');
+        expect(data.name).toBe(updatedBiere.name);
     });
 
     test('DELETE /bieres/:id - should delete an existing biere', async () => {

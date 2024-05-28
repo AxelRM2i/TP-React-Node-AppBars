@@ -18,6 +18,7 @@ const Biere = sequelize.define('Biere',{
 
     price: {
         type: DataTypes.FLOAT,
+        min:(0),
     },
 
     bar_id: {
@@ -25,7 +26,7 @@ const Biere = sequelize.define('Biere',{
     },
 
 });
-Biere.belongsTo(Bar, { foreignKey: 'bar_id' });
-Bar.hasMany(Biere, { foreignKey: 'bar_id' });
+Biere.belongsTo(Bar, { foreignKey: 'bar_id' });//biere appartien a au moins 1 bar
+Bar.hasMany(Biere, { foreignKey: 'bar_id' });//un bar a plusieurs biere
 
 export default Biere;
