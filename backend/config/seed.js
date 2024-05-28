@@ -1,5 +1,6 @@
 // scripts/seed.js
 import Bar from '../models/bar.js';
+import Biere from '../models/biere.js';
 
 const barsData = [
   {
@@ -58,16 +59,26 @@ const barsData = [
     email: 'tombeedansloubli@outlook.fr',
     description: 'le bar le plus caliente du quartier, revivez les 1000 et une nuit',
   },
+];
 
+const bieresData = [ 
+  {
+    name: "Heineken",
+    description:"Biere Blonde qui saura ravir vos papilles",
+    degree: 3,
+    price: 5,
+  }
 ];
 
 const seedDatabase = async () => {
   try {
     await Bar.bulkCreate(barsData);
+    await Biere.bulkCreate(bieresData);
     console.info('✅ Database seeded!');
   } catch (error) {
     console.error('Failed to seed database:', error);
   }
 };
+
 
 export default seedDatabase;
