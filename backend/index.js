@@ -1,7 +1,6 @@
 import express from 'express';
 import cors from 'cors';
 import sequelize from './config/database.js';
-import './config/customConsole.js';
 import barsRoutes from './routes/bars.js';
 import biere_commandeRoutes from './routes/biere_commande.js';
 import bieresRoutes from './routes/bieres.js';
