@@ -1,13 +1,9 @@
 import { Sequelize } from 'sequelize';
 
 const sequelize = new Sequelize(
-  'tp-reactjs-nodejs', 
-  'root', 
-  '', 
   {
-  host: 'localhost',
-  dialect: 'mysql',
-  logging: false, // ou true si besoin
+  dialect: 'sqlite',
+  storage: 'dbreactNode.sqlite',
 });
-
+sequelize.sync();
 export default sequelize;

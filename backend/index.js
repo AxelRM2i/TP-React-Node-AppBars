@@ -5,7 +5,7 @@ import barsRoutes from './routes/bars.js';
 import biere_commandeRoutes from './routes/biere_commande.js';
 import bieresRoutes from './routes/bieres.js';
 import commandesRoutes from './routes/commandes.js';
-// import seedDatabase from './config/seed.js';
+import seedDatabase from './config/seed.js';
 
 const app = express();
 const port = 3000;

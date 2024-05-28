@@ -1,6 +1,5 @@
 // scripts/seed.js
 import Bar from '../models/bar.js';
-import './customConsole.js';
 
 const barsData = [
   {
