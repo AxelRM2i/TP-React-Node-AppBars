@@ -10,21 +10,23 @@ import "./App.css";
 // import ListeCommandesPage from './pages/ListeCommandes';
 
 const App = () => {
-    return (
-        <Router>
-            <>
-                <Menu />
-                <Manager />
-                <Thumb />
-                <Routes>
-                    <Route path="/" element={<HomePage />} />
-                    <Route path="/bars" element={<BarList />} />
-                    {/* <Route path="/bieres" element={<ListeBieresPage />} />
-                    <Route path="/commandes" element={<ListeCommandesPage />} /> */}
-                </Routes>
-            </>
-        </Router>
-    );
+  return (
+    <Router>
+      <>
+        <Menu />
+        <main>
+          <Thumb />
+          <Manager />
+          <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/bars" element={<BarList />} />
+              {/* <Route path="/bieres" element={<ListeBieresPage />} />
+              <Route path="/commandes" element={<ListeCommandesPage />} /> */}
+          </Routes>
+        </main>
+      </>
+    </Router>
+  );
 };
 
 export default App;
