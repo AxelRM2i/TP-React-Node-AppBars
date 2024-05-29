@@ -37,5 +37,5 @@ sequelize
   });
 
 app.listen(port, () => {
-  console.log('Server is listening on port ' + port);
+  console.log(`✅ API Server is running on port ${port}`);
 });

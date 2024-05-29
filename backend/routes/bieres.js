@@ -1,12 +1,12 @@
 import express from 'express';
 import Biere from '../models/biere.js';
-import Bar from '../models/bar.js';
+
 const router = express.Router();
 
 // Liste des bières d'un bar
-router.get('/bar/:barId/bieres', async (req, res) => {
+router.get('/bar/:id/bieres', async (req, res) => {
     try {
-        const bieres = await Biere.findAll({ where: { bar_id: req.params.barId } });
+        const bieres = await Biere.findAll();
         res.json(bieres);
     } catch (err) {
         res.status(500).json({ error: err.message });
@@ -28,11 +28,9 @@ router.get('/:id', async (req, res) => {
 });
 
 // Ajouter une bière à un bar
-router.post('/bar/:barId/biere', async (req, res) => {
+router.post('/bar/:id/biere', async (req, res) => {
     try {
-        const barId = req.params.barId;
-        const { name, description, degree, price } = req.body;
-        const newBiere = await Biere.create({ name, description, degree, price, bar_id: barId });
+        const newBiere = await Biere.create(req.body);
         res.status(201).json(newBiere);
     } catch (err) {
         res.status(500).json({ error: err.message });
