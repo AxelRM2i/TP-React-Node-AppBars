@@ -2,15 +2,15 @@ import express from 'express';
 import Commande from '../models/commande.js';
 const router = express.Router();
 
-router.get('/bar/:id/commande', async (req, res) => {//liste des commandes d'un bar
+router.get('/bars/:bar_id/commandes', async (req, res) => {//liste des commandes d'un bar
     try {
-        const commande = await Commande.findAll();
+        const commande = await Commande.findAll({where: req.params});
         res.json(commande);
     } catch (err) {
         res.status(500).json({ error: err.message })
     }
 })
-router.get('/:id', async (req, res) => {
+router.get('/commandes/:id', async (req, res) => {
     try {
         const commande = await Commande.findByPk(req.params.id);
         if (commande) {
@@ -23,7 +23,8 @@ router.get('/:id', async (req, res) => {
     }
 })
 
-router.post('/bar/:id/commande', async (req, res) => {
+//ajouter une commande a un bar
+router.post('/bars/:bar_id/commandes', async (req, res) => {
     try {
         const newCommande = await Commande.create(req.body);
         res.status(201).json(newCommande);
@@ -32,10 +33,9 @@ router.post('/bar/:id/commande', async (req, res) => {
     }
 })
 
-router.put('/:id', async (req, res) => {
+router.put('/commandes/:id', async (req, res) => {
     try {
-        const id = req.params.id
-        const commande = await Commande.findByPk(id)
+        const commande = await Commande.findByPk(req.params.id)
         if (commande) {
             await commande.update(req.body)
             res.json(commande)
@@ -47,10 +47,9 @@ router.put('/:id', async (req, res) => {
     }
 })
 
-router.delete('/:id', async (req, res) => {
+router.delete('/commandes/:id', async (req, res) => {
     try {
-        const id = req.params.id
-        const commande = await Commande.findByPk(id)
+        const commande = await Commande.findByPk(req.params.id)
         if (commande) {
             await commande.destroy()
             res.status(204).end()
@@ -61,6 +60,5 @@ router.delete('/:id', async (req, res) => {
         res.status(500).json({ error: err.message })
     }
 })
-
 
 export default router;

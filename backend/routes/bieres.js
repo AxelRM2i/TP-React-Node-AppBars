@@ -5,7 +5,6 @@ const router = express.Router();
 
 // Liste des bières d'un bar
 router.get('/bars/:bar_id/bieres', async (req, res) => {
-    console.log('test');
     try {
         const bieres = await Biere.findAll({where: req.params});
         res.json(bieres);

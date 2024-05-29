@@ -27,7 +27,7 @@ app.use('/', commandesRoutes);
 //   res.send('Hello, world!');
 // });
 sequelize
-  .sync({ force: true })
+  .sync()
   .then(async () => {
     console.log('✅ Database & tables created!');
     await seedDatabase();

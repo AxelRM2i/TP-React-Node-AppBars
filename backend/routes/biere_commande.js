@@ -2,7 +2,8 @@ import express from 'express';
 import Biere_commande from '../models/biere_commande.js';
 const router = express.Router();
 
-router.post('/commande/:id/biere/:id', async (req, res) => {
+// Ajouter une bière à une commande
+router.post('/commandes/:id/bieres/:id', async (req, res) => {
     try {
         const newBiere_commande = await Biere_commande.create(req.body);
         res.status(201).json(newBiere_commande);
@@ -11,7 +12,8 @@ router.post('/commande/:id/biere/:id', async (req, res) => {
     }
 })
 
-router.delete('/commande/:id/biere/:id', async (req, res) => {
+// supprimer une bière à une commande
+router.delete('/commandes/:id/bieres/:id', async (req, res) => {
     try {
         const id = req.params.id
         const biere_commande = await Biere_commande.findByPk(id)
@@ -24,7 +26,8 @@ router.delete('/commande/:id/biere/:id', async (req, res) => {
     } catch (err) {
         res.status(500).json({ error: err.message })
     }
-})
+});
+
 
 
 export default router;
