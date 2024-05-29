@@ -4,18 +4,18 @@ import { Link } from 'react-router-dom';
 const Menu = () => {
     return (
         <header>
-            <div class="headerTitle">
+            <div className="headerTitle">
                 UBar
             </div>
-            <div class="navbar">
-                <ul class="navlist">
+            <div className="navbar">
+                <ul className="navlist">
                     <li href="#">Accueil</li>
                     <li href="#">Bars</li>
                     <li href="#">Commandes</li>
                     <li href="#">Qui sommes-nous</li>
                 </ul>
             </div>
-            <div class="logbar">
+            <div className="logbar">
 
             </div>
         </header>
