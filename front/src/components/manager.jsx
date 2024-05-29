@@ -12,23 +12,23 @@ const Manager = () => {
                 </div>
                 <div className="mgrBarForm" id="formBar">
                     <form>
-                        <label for="barName">Nom du bar</label>
+                        <label htmlFor="barName">Nom du bar</label>
                         <br />
                         <input type="text" name="barName" id="barName" required />
                         <br />
-                        <label for="barAddress">Adresse</label>
+                        <label htmlFor="barAddress">Adresse</label>
                         <br />
                         <input type="text" name="barAddress" id="barAddress" required />
                         <br />
-                        <label for="barPhone">Téléphone</label>
+                        <label htmlFor="barPhone">Téléphone</label>
                         <br />
                         <input type="tel" name="barPhone" id="barPhone" />
                         <br />
-                        <label for="barEmail">E-mail</label>
+                        <label htmlFor="barEmail">E-mail</label>
                         <br />
                         <input type="email" name="barEmail" id="barEmail" required />
                         <br />
-                        <label for="barDescr">Adresse</label>
+                        <label htmlFor="barDescr">Adresse</label>
                         <br />
                         <input type="text" name="barDescr" id="barDescr" />
                         <br />
@@ -43,15 +43,15 @@ const Manager = () => {
                 </div>
                 <div className="mgrOrderForm" id="formOrder">
                     <form>
-                        <label for="orderName">Nom du client</label>
+                        <label htmlFor="orderName">Nom du client</label>
                         <br />
                         <input type="text" name="orderName" id="orderName" required />
                         <br />
-                        <label for="orderPrice">Bière</label>
+                        <label htmlFor="orderPrice">Bière</label>
                         <br />
                         <input type="text" name="orderPrice" id="orderPrice" required />
                         <br />
-                        <label for="orderBarId">Identifiant du bar</label>
+                        <label htmlFor="orderBarId">Identifiant du bar</label>
                         <br />
                         <input type="number" name="orderBarId" id="orderBarId" />
                         <br />

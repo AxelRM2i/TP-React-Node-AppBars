@@ -1,6 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Menu from './components/menu';
+import Manager from './components/manager';
+import Thumb from './components/thumb';
 import HomePage from './pages/homepage';
 import BarList from './pages/barList';
 import "./App.css";
@@ -13,6 +15,7 @@ const App = () => {
             <>
                 <Menu />
                 <Manager />
+                <Thumb />
                 <Routes>
                     <Route path="/" element={<HomePage />} />
                     <Route path="/bars" element={<BarList />} />
