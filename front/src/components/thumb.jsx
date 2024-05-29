@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Thumb = () => {
+const thumb = () => {
     return (
         <>
             <div className="thumb">
@@ -11,4 +11,6 @@ const Thumb = () => {
     )
 }
 
-export default Thumb;
+export default thumb;
+
+
