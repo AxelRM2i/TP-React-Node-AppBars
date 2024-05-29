@@ -19,8 +19,8 @@ app.use(express.json());
 // Utilisation des routes
 app.use('/bars', barsRoutes);
 app.use('/biere_commande', biere_commandeRoutes);
-app.use('/bieres', bieresRoutes);
-app.use('/commandes', commandesRoutes);
+app.use('/', bieresRoutes);
+app.use('/', commandesRoutes);
 
 // Route de base pour vérifier le fonctionnement du serveur
 // app.get('/', (req, res) => {

@@ -4,9 +4,10 @@ import Biere from '../models/biere.js';
 const router = express.Router();
 
 // Liste des bières d'un bar
-router.get('/bar/:id/bieres', async (req, res) => {
+router.get('/bars/:bar_id/bieres', async (req, res) => {
+    console.log('test');
     try {
-        const bieres = await Biere.findAll();
+        const bieres = await Biere.findAll({where: req.params});
         res.json(bieres);
     } catch (err) {
         res.status(500).json({ error: err.message });
@@ -14,7 +15,7 @@ router.get('/bar/:id/bieres', async (req, res) => {
 });
 
 // Détail d'une bière
-router.get('/:id', async (req, res) => {
+router.get('/bieres/:id', async (req, res) => {
     try {
         const biere = await Biere.findByPk(req.params.id);
         if (biere) {
@@ -27,8 +28,21 @@ router.get('/:id', async (req, res) => {
     }
 });
 
+// Détail de ttes les bieres
+router.get('/bieres', async (req, res) => {
+    try {
+        const biere = await Biere.findAll();
+        if (biere) {
+            res.json(biere);
+        } else {
+            res.status(404).json({ error: 'Bière non trouvée' });
+        }
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
 // Ajouter une bière à un bar
-router.post('/bar/:id/biere', async (req, res) => {
+router.post('/bars/:id/bieres', async (req, res) => {
     try {
         const newBiere = await Biere.create(req.body);
         res.status(201).json(newBiere);
@@ -38,7 +52,7 @@ router.post('/bar/:id/biere', async (req, res) => {
 });
 
 // Modifier une bière
-router.put('/:id', async (req, res) => {
+router.put('/bieres/:id', async (req, res) => {
     try {
         const id = req.params.id;
         const biere = await Biere.findByPk(id);
@@ -54,7 +68,7 @@ router.put('/:id', async (req, res) => {
 });
 
 // Supprimer une bière
-router.delete('/:id', async (req, res) => {
+router.delete('/bieres/:id', async (req, res) => {
     try {
         const id = req.params.id;
         const biere = await Biere.findByPk(id);

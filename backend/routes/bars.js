@@ -5,8 +5,8 @@ const router = express.Router();
 
 router.get('/', async (req, res) => {
     try {
-        const bars = await Bar.findAll();
-        res.json(bars);
+        const bar = await Bar.findAll();
+        res.json(bar);
     } catch (err) {
         res.status(500).json({ error: err.message });
     }
