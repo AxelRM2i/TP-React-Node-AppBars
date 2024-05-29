@@ -3,22 +3,22 @@ import { Link } from 'react-router-dom';
 
 const Menu = () => {
     return (
-        <nav>
-            <ul>
-                <li>
-                    <Link to="/">Accueil</Link>
-                </li>
-                <li>
-                    <Link to="/bars">Liste des bars</Link>
-                </li>
-                <li>
-                    <Link to="/#">Liste des bières</Link>
-                </li>
-                <li>
-                    <Link to="/#">Liste des commandes</Link>
-                </li>
-            </ul>
-        </nav>
+        <header>
+            <div class="headerTitle">
+                UBar
+            </div>
+            <div class="navbar">
+                <ul class="navlist">
+                    <li href="#">Accueil</li>
+                    <li href="#">Bars</li>
+                    <li href="#">Commandes</li>
+                    <li href="#">Qui sommes-nous</li>
+                </ul>
+            </div>
+            <div class="logbar">
+
+            </div>
+        </header>
     );
 };
 
