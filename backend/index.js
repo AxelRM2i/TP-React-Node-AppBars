@@ -18,14 +18,10 @@ app.use(express.json());
 
 // Utilisation des routes
 app.use('/bars', barsRoutes);
-app.use('/biere_commande', biere_commandeRoutes);
+app.use('/', biere_commandeRoutes);
 app.use('/', bieresRoutes);
 app.use('/', commandesRoutes);
 
-// Route de base pour vérifier le fonctionnement du serveur
-// app.get('/', (req, res) => {
-//   res.send('Hello, world!');
-// });
 sequelize
   .sync()
   .then(async () => {
