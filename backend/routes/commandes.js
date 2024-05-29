@@ -10,6 +10,7 @@ router.get('/bars/:bar_id/commandes', async (req, res) => {//liste des commandes
         res.status(500).json({ error: err.message })
     }
 })
+
 router.get('/commandes/:id', async (req, res) => {
     try {
         const commande = await Commande.findByPk(req.params.id);
@@ -20,6 +21,15 @@ router.get('/commandes/:id', async (req, res) => {
         }
     } catch (err) {
         res.status(500).json({ error: err.message });
+    }
+})
+
+router.get('/commandes', async (req, res) => {//liste de toutes les commandes
+    try {
+        const commande = await Commande.findAll({where: req.params});
+        res.json(commande);
+    } catch (err) {
+        res.status(500).json({ error: err.message })
     }
 })
 
